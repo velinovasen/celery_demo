@@ -1,0 +1,16 @@
+1. 	If we call the function with .delay() at the end - we call it async, while without .delay() we
+	call it sync (gonna wait for it to finish)
+
+2.	To make a worker be working succesfully on windows 10 we have to start it with this command:
+	celery -A proj_name worker -l info -P solo instead of just celery -A proj_name worker -l info
+	This way also we run the worker with only 1 processor instead of full capacity.
+	The way around is to use celery -A proj_name worker -l info -P gevent after we do
+	pip install gevent. Tried with eventlet but did not work.
+	source: https://www.distributedpython.com/2018/08/21/celery-4-windows/
+
+3. 	py manage.py inspectdb - gives a quick look at the database
+
+4.	celery -A proj_name purge - deletes all tasks in the queue
+
+5.	pip install flower -> for monitoring! it opens a server with celery -A proj_name flower and we
+	can track it from there.

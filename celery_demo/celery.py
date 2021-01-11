@@ -20,7 +20,7 @@ app.conf.broker_url = 'redis://localhost:6379/0'
 app.conf.beat_schedule = {
     'every-1-minute': {
         'task': 'notifications.tasks.send_email',
-        'schedule': crontab(minute='*/1'),
+        'schedule': 1,
         'args': ('velinovasen@yahoo.com',)
     }
 }
